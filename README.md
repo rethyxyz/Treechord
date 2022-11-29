@@ -18,7 +18,7 @@ By design, Treechord doesn't modify any Windows internals, unlike unsuppored mod
 - Suppored by all keyboards (extended on MS Ergonomic 4000).
 - JSON configurable.
 
-## JSON Configuration
+# JSON Configuration
 The default configuration file is created at ~/Treechord.json (where ~ is your user's home directory). Your default configuration file will look something like this.
 
         {
