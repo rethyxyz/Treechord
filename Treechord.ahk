@@ -190,25 +190,21 @@ processValue(variableData)
 
 raiseOrRun(WindowStat, ProgramPath)
 {
-    If WinExist("ahk_exe" WindowStat)
-    {
+    If WinActive("ahk_exe" WindowStat)
         WinActivateBottom, ahk_exe %WindowStat%
-        return
-    }
-
-    IfWinExist ahk_class %WindowStat%
-    {
+    else IfWinActive ahk_class %WindowStat%
         WinActivateBottom, ahk_class %WindowStat%
-        return
-    }
-
-    Run, %ProgramPath%,, UseErrorLevel
-
-    if (ErrorLevel = "ERROR")
+    else If WinExist("ahk_exe" WindowStat)
+        WinActivate, ahk_exe %WindowStat%
+    else IfWinExist ahk_class %WindowStat%
+        WinActivate, ahk_class %WindowStat%
+    else
     {
-        TrayTip, Failed, Failed to run %ProgramPath%
+        Run, %ProgramPath%,, UseErrorLevel
+
+        if (ErrorLevel = "ERROR")
+            TrayTip, Failed to run program, Failed to run %ProgramPath%
     }
-    return
 }
 
 workspace(workspaceID)
@@ -218,48 +214,18 @@ workspace(workspaceID)
     WinActivate, ahk_class Shell_TrayWnd
 
     Loop, 9
-    {
         Send ^#{Left}
-    }
 
     Loop, %workspaceID%
-    {
         Send ^#{Right}
-    }
-}
-
-runProgram(programPath, programArgument)
-{
-    if (! programArgument or programArgument == "")
-    {
-        Run %programPath%,, UseErrorLevel
-
-        if (ErrorLevel = "ERROR")
-        {
-            TrayTip, Failed, Failed to run %ProgramPath%
-        }
-        return
-    }
-
-    Run, %programPath%, %programArgument%,, UseErrorLevel
-
-    if (ErrorLevel = "ERROR")
-    {
-        TrayTip, Failed, Failed to run %ProgramPath% %programArgument%
-    }
-    return
 }
 
 toggleTreechord()
 {
     if (A_IsSuspended)
-    {
         state = Enabled
-    }
     else
-    {
         state = Disabled
-    }
 
     Traytip %state% %A_ScriptName%, %state%.
     Suspend,Toggle
@@ -495,7 +461,6 @@ MsNatural4000_ZoomUp:
     Send ^{+}
     return
 
-/*
 NumpadEnd:: workspace(1)
 NumpadDown:: workspace(2)
 NumpadPgDn:: workspace(3)
@@ -506,9 +471,7 @@ NumpadHome:: workspace(7)
 NumpadUp:: workspace(8)
 NumpadPgUp:: workspace(9)
 NumpadIns:: workspace(10)
-*/
 
-/*
 ; NumpadDot
 ; NumLock
 ; NumpadDiv
@@ -516,4 +479,3 @@ NumpadIns:: workspace(10)
 NumpadAdd:: Send ^#{Right}
 NumpadSub:: Send ^#{Left}
 ; NumpadEnter
-*/
