@@ -175,9 +175,7 @@ processValue(variableData)
 {
     arrayLength := returnArrayLength(variableData)
     IfEqual, arrayLength, 2
-    {
         buffer := [ variableData[1], variableData[2] ]
-    }
     else
     {
         variableData := StrReplace(variableData, "/", "\\")
