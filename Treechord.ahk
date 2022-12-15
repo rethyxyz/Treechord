@@ -398,12 +398,9 @@ $F1::
         WinGet, MinMax, MinMax, A
 
         If (MinMax = 1)
-        {
             WinRestore, A
-            return
-        }
-
-        WinMaximize, A
+        else
+            WinMaximize, A
         return
     }
 $F2::  WinMinimize, A
@@ -459,6 +456,7 @@ MsNatural4000_ZoomUp:
     Send ^{+}
     return
 
+/*
 NumpadEnd:: workspace(1)
 NumpadDown:: workspace(2)
 NumpadPgDn:: workspace(3)
@@ -469,6 +467,7 @@ NumpadHome:: workspace(7)
 NumpadUp:: workspace(8)
 NumpadPgUp:: workspace(9)
 NumpadIns:: workspace(10)
+*/
 
 ; NumpadDot
 ; NumLock
