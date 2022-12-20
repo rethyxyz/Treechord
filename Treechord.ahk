@@ -1,87 +1,12 @@
 #Include %A_ScriptDir%\Natural_keyboard_4000_support.ahk
 #Include %A_ScriptDir%\JSON.ahk
+
 #NoEnv
+
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
 Menu, Tray, Icon, shell32.dll, 42, 1
-
-/* Profiles
- *
- * These are global because AHK can't bind keys in functions.
- */
-
-; bind keys
-global bindA
-global bindB
-global bindC
-;global bindD
-;global bindE
-global bindF
-global bindG
-global bindH
-global bindI
-global bindJ
-global bindK
-global bindL
-global bindM
-global bindN
-global bindO
-global bindP
-global bindQ
-;global bindR
-global bindS
-global bindT
-global bindU
-global bindV
-global bindW
-;global bindX
-global bindY
-global bindZ
-
-global bindEnter
-
-global bindShiftA
-global bindShiftB
-global bindShiftC
-global bindShiftD
-global bindShiftE
-global bindShiftF
-global bindShiftG
-global bindShiftH
-global bindShiftI
-global bindShiftJ
-global bindShiftK
-global bindShiftL
-global bindShiftM
-global bindShiftN
-global bindShiftO
-global bindShiftP
-global bindShiftQ
-global bindShiftR
-global bindShiftS
-global bindShiftT
-global bindShiftU
-global bindShiftV
-global bindShiftW
-global bindShiftX
-global bindShiftY
-global bindShiftZ
-
-global bindShiftEnter
-
-global bindLaunch1
-global bindLaunch2
-global bindLaunch3
-global bindLaunch4
-global bindLaunch5
-
-global configurationFile
-
-/* File and Directory Variables
- *
- * - Standard AHK strings.
- */
 
 /* Configuration variables.
  */
@@ -230,91 +155,88 @@ toggleTreechord()
     return
 }
 
-parseConfiguration(fileName)
-{
-    filePointer := FileOpen(fileName, "r")
-    JSONStr     := filePointer.Read()
-    JSONData    := JSON.Load(JSONStr)
-
-    for variableName, variableData in JSONData
-    {
-        ;MsgBox % variableName
-        switch (variableName)
-        {
-            case "bindA": bindA := processValue(variableData)
-            case "bindB": bindB := processValue(variableData)
-            case "bindC": bindC := processValue(variableData)
-            case "bindF": bindF := processValue(variableData)
-            case "bindG": bindG := processValue(variableData)
-            case "bindH": bindH := processValue(variableData)
-            case "bindI": bindI := processValue(variableData)
-            case "bindJ": bindJ := processValue(variableData)
-            case "bindK": bindK := processValue(variableData)
-            case "bindL": bindL := processValue(variableData)
-            case "bindM": bindM := processValue(variableData)
-            case "bindN": bindN := processValue(variableData)
-            case "bindO": bindO := processValue(variableData)
-            case "bindP": bindP := processValue(variableData)
-            case "bindQ": bindQ := processValue(variableData)
-            case "bindS": bindS := processValue(variableData)
-            case "bindT": bindT := processValue(variableData)
-            case "bindU": bindU := processValue(variableData)
-            case "bindV": bindV := processValue(variableData)
-            case "bindW": bindW := processValue(variableData)
-            case "bindY": bindY := processValue(variableData)
-            case "bindZ": bindZ := processValue(variableData)
-
-			case "bindEnter": bindEnter := processValue(variableData)
-
-            case "bindShiftA": bindShiftA := processValue(variableData)
-            case "bindShiftB": bindShiftB := processValue(variableData)
-            case "bindShiftC": bindShiftC := processValue(variableData)
-            case "bindShiftD": bindShiftD := processValue(variableData)
-            case "bindShiftE": bindShiftE := processValue(variableData)
-            case "bindShiftF": bindShiftF := processValue(variableData)
-            case "bindShiftG": bindShiftG := processValue(variableData)
-            case "bindShiftH": bindShiftH := processValue(variableData)
-            case "bindShiftI": bindShiftI := processValue(variableData)
-            case "bindShiftJ": bindShiftJ := processValue(variableData)
-            case "bindShiftK": bindShiftK := processValue(variableData)
-            case "bindShiftL": bindShiftL := processValue(variableData)
-            case "bindShiftM": bindShiftM := processValue(variableData)
-            case "bindShiftN": bindShiftN := processValue(variableData)
-            case "bindShiftO": bindShiftO := processValue(variableData)
-            case "bindShiftP": bindShiftP := processValue(variableData)
-            case "bindShiftQ": bindShiftQ := processValue(variableData)
-            case "bindShiftR": bindShiftR := processValue(variableData)
-            case "bindShiftS": bindShiftS := processValue(variableData)
-            case "bindShiftT": bindShiftT := processValue(variableData)
-            case "bindShiftU": bindShiftU := processValue(variableData)
-            case "bindShiftV": bindShiftV := processValue(variableData)
-            case "bindShiftW": bindShiftW := processValue(variableData)
-            case "bindShiftX": bindShiftX := processValue(variableData)
-            case "bindShiftY": bindShiftY := processValue(variableData)
-            case "bindShiftZ": bindShiftZ := processValue(variableData)
-
-			case "bindShiftEnter": bindShiftEnter := processValue(variableData)
-
-			case "bindLaunch1": bindLaunch1 := processValue(variableData)
-			case "bindLaunch2": bindLaunch2 := processValue(variableData)
-			case "bindLaunch3": bindLaunch3 := processValue(variableData)
-			case "bindLaunch4": bindLaunch4 := processValue(variableData)
-			case "bindLaunch5": bindLaunch5 := processValue(variableData)
-
-            Default:
-                TrayTip, Error in %fileName%, "%variableName%": "%variableData%".
-                toggleTreechord()
-        }
-    }
-
-    TrayTip, %JSONData%, %JSONData%
-}
 
 /* General init.
  */
 
 initConfiguration(configurationFile)
-parseConfiguration(configurationFile)
+
+filePointer := FileOpen(configurationFile, "r")
+JSONStr     := filePointer.Read()
+filePointer.Close()
+JSONData    := JSON.Load(JSONStr)
+
+for variableName, variableData in JSONData
+{
+    switch (variableName)
+    {
+        case "bindA": bindA := processValue(variableData)
+        case "bindB": bindB := processValue(variableData)
+        case "bindC": bindC := processValue(variableData)
+        case "bindF": bindF := processValue(variableData)
+        case "bindG": bindG := processValue(variableData)
+        case "bindH": bindH := processValue(variableData)
+        case "bindI": bindI := processValue(variableData)
+        case "bindJ": bindJ := processValue(variableData)
+        case "bindK": bindK := processValue(variableData)
+        case "bindL": bindL := processValue(variableData)
+        case "bindM": bindM := processValue(variableData)
+        case "bindN": bindN := processValue(variableData)
+        case "bindO": bindO := processValue(variableData)
+        case "bindP": bindP := processValue(variableData)
+        case "bindQ": bindQ := processValue(variableData)
+        case "bindS": bindS := processValue(variableData)
+        case "bindT": bindT := processValue(variableData)
+        case "bindU": bindU := processValue(variableData)
+        case "bindV": bindV := processValue(variableData)
+        case "bindW": bindW := processValue(variableData)
+        case "bindY": bindY := processValue(variableData)
+        case "bindZ": bindZ := processValue(variableData)
+
+        case "bindEnter": bindEnter := processValue(variableData)
+
+        case "bindShiftA": bindShiftA := processValue(variableData)
+        case "bindShiftB": bindShiftB := processValue(variableData)
+        case "bindShiftC": bindShiftC := processValue(variableData)
+        case "bindShiftD": bindShiftD := processValue(variableData)
+        case "bindShiftE": bindShiftE := processValue(variableData)
+        case "bindShiftF": bindShiftF := processValue(variableData)
+        case "bindShiftG": bindShiftG := processValue(variableData)
+        case "bindShiftH": bindShiftH := processValue(variableData)
+        case "bindShiftI": bindShiftI := processValue(variableData)
+        case "bindShiftJ": bindShiftJ := processValue(variableData)
+        case "bindShiftK": bindShiftK := processValue(variableData)
+        case "bindShiftL": bindShiftL := processValue(variableData)
+        case "bindShiftM": bindShiftM := processValue(variableData)
+        case "bindShiftN": bindShiftN := processValue(variableData)
+        case "bindShiftO": bindShiftO := processValue(variableData)
+        case "bindShiftP": bindShiftP := processValue(variableData)
+        case "bindShiftQ": bindShiftQ := processValue(variableData)
+        case "bindShiftR": bindShiftR := processValue(variableData)
+        case "bindShiftS": bindShiftS := processValue(variableData)
+        case "bindShiftT": bindShiftT := processValue(variableData)
+        case "bindShiftU": bindShiftU := processValue(variableData)
+        case "bindShiftV": bindShiftV := processValue(variableData)
+        case "bindShiftW": bindShiftW := processValue(variableData)
+        case "bindShiftX": bindShiftX := processValue(variableData)
+        case "bindShiftY": bindShiftY := processValue(variableData)
+        case "bindShiftZ": bindShiftZ := processValue(variableData)
+
+        case "bindShiftEnter": bindShiftEnter := processValue(variableData)
+
+        case "bindLaunch1": bindLaunch1 := processValue(variableData)
+        case "bindLaunch2": bindLaunch2 := processValue(variableData)
+        case "bindLaunch3": bindLaunch3 := processValue(variableData)
+        case "bindLaunch4": bindLaunch4 := processValue(variableData)
+        case "bindLaunch5": bindLaunch5 := processValue(variableData)
+
+        Default:
+            TrayTip, Error in %fileName%, "%variableName%": "%variableData%".
+            toggleTreechord()
+    }
+}
+
+;TrayTip, %JSONData%, %JSONData%
 
 ; Windows + ?
 #a:: raiseOrRun(bindA[1], bindA[2])
