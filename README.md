@@ -2,67 +2,67 @@
 
 <img src="Treechord.png">
 
-A user friendly key system for Windows.
+Are you tired of trying to remember which keys to press to access certain features on your computer? Introducing Treechord: the user-friendly key system for Windows that makes it easy to access all of your favorite programs with just a few simple keystrokes.
 
+With Treechord, users can customize their own key combinations to access specific features or perform certain actions on their computer. This can include launching programs, opening files, and more.
+
+Treechord is designed to be easy to use, with a clear and intuitive design that allows users to quickly set up and customize their key combinations. The software also includes a variety of preset key combinations for common actions, making it easy for users to get started right out of the box.
+
+In addition to its user-friendly design, Treechord is also fully compatible with all versions of Windows, making it the perfect tool for anyone looking to streamline their computer usage.
+
+Say goodbye to cluttered desktop icons and complicated key combinations - with Treechord, accessing your favorite features has never been easier. Try Treechord today and start making the most of your computer.
+
+## Details
 The Microsoft Windows keybind system lacks any form of customizable options. Your only choice is to assign button presses to individual links or shortcuts. Unfortunately, that's hard to manage, and doesn't scale between systems. Treechord solves this problem by bringing a complete executable that works on all Windows systems.
 
-By design, Treechord doesn't modify any Windows internals, unlike unsuppored modifications that use the registry. Instead, Treechord adds a simple, plain text JSON file to your user's folder, allowing for fast and simple customization without fuddling with source code.
+By design, Treechord doesn't modify any Windows internals, unlike unsuppored modifications that use the registry. Instead, Treechord adds a simple JSON file to your user's home folder, allowing for fast and simple customization without fuddling with source code.
 
-# Specifications
-- Windows Vista, 7, 8, 8.1, 10, and 11 compatible.
+## Specifications
+- Supports all (reasonable) versions of Windows.
 - 64 and 32-bit compatible.
 
-# Features
+## Features
 - Built on top of Windows; doesn't cause instability; doesn't touch registry, or group policies
 - Standalone; no installation.
 - Suppored by all keyboards (extended on MS Ergonomic 4000).
 - JSON configurable.
 
-# JSON Configuration
-The default configuration file is created at ~/Treechord.json (where ~ is your user's home directory). Your default configuration file will look something like this.
+## Configuration
+The configuration file is in JSON format, with each key representing a keyboard shortcut and the corresponding value representing the program to be launched.
+
+Here is an example of a valid configuration:
 
         {
-            "bindA": "",
-            "bindShiftA": ""
+        "bindA": "C:\Users\brody\AppData\Roaming\Telegram Desktop\Telegram.exe",
+        "bindShiftA": "C:\Users\brody\AppData\Local\Discord\app-1.0.9007\Discord.exe"
         }
 
-`bindA` means the key `a`, and `bindShiftA` means the key A (note the difference between capitalization).
+In this example, pressing "Windows + A" will launch Telegram, while pressing "Windows + Shift + A" will launch Discord.
 
-In your file, there will be a list of all possible bindable keys in that file. In this case, it's shortened for brevity.
+## Key Bindings
+The keys or key combinations to be bound are specified as strings. Here are some examples of valid key bindings:
 
-Imagine you want to add Discord to `bindShiftA` and Telegram to `bindA`. For this task, you'll need the executable path. If you already know how, you can skip the explanation. If not, here's how you'd set this up:
+"A": Binds the A key
+"Shift+A": Binds the Shift+A key combination
 
-- Hit the *Start* button
-- Search for *telegram*
-- Right Click -> *Open File Location*
-- Right click the shortcut that's selected in the explorer window that appears -> *Open File Location* once again.
-- Shift + Right click the selected executable, and choose *Copy as path*.
+## Program Paths
+The programs to be launched are specified as file paths. These paths should be absolute and should include the program's executable file.
 
-Paste this path into the JSON key value like so:
+Here is an example of a valid program path:
 
-        "bindA": "C:\\Users\\brody\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"
+        "C:/Users/brody/AppData/Roaming/Telegram Desktop/Telegram.exe"
 
-Make sure you change the single \ (back slashes) to \\\\ (double black slashes). Then, repeat the same process as before.
+## Usage
+To use the keyboard shortcuts, simply press the bound key or key combination. The corresponding program will be launched.
 
-Paste this path into the JSON key value like so:
+Note that the keyboard shortcuts will only work if the configuration file is properly loaded by the keyboard shortcut program.
 
-        "bindShiftA": "C:\\Users\\brody\\AppData\\Local\\Discord\\app-1.0.9007\\Discord.exe"
-
-Now, if we put it all together...
-
-        {
-            "bindA": "C:\\Users\\brody\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe",
-            "bindShiftA": "C:\\Users\\brody\\AppData\\Local\\Discord\\app-1.0.9007\\Discord.exe"
-        }
-
-Now, if you restart Treechord (Windows + Ctrl + r), try running pressing those keys once again. You'll see that they either run if they're closed, or are raised if they are opened.
-
-# FAQ
-## "I modified the config. Why are my shortcuts still the same?"
+## FAQ
+### "I modified the config. Why are my shortcuts still the same?"
 Run **Windows + Ctrl + r**. This reloads the actively running configuration.
 
-## "I messed up my config file. How do I reset it?"
+### "I messed up my config file. How do I reset it?"
 Remove the file, then rerun or reload Treechord.
 
-## Why don't my keybindings work with X, Y, or Z program when running as administrator?
+### Why don't my keybindings work with X, Y, or Z program when running as administrator?
 Treechord needs to be run as administrator in order to work with priviledged programs.
