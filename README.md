@@ -42,8 +42,9 @@ In this example, pressing "Windows + A" will launch Telegram, while pressing "Wi
 ## Key Bindings
 The keys or key combinations to be bound are specified as strings. Here are some examples of valid key bindings:
 
-"A": Binds the A key
-"Shift+A": Binds the Shift+A key combination
+"bindA": Binds the Windows + A key combination.
+
+"bindShiftA": Binds the Windows + Shift + A key combination.
 
 ## Program Paths
 The programs to be launched are specified as file paths. These paths should be absolute and should include the program's executable file.
@@ -55,7 +56,7 @@ Here is an example of a valid program path:
 ## Usage
 To use the keyboard shortcuts, simply press the bound key or key combination. The corresponding program will be launched.
 
-Note that the keyboard shortcuts will only work if the configuration file is properly loaded by the keyboard shortcut program.
+Note that the keyboard shortcuts will only work if the configuration file is properly loaded by the Treechord.
 
 ## FAQ
 ### "I modified the config. Why are my shortcuts still the same?"
