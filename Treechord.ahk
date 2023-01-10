@@ -130,19 +130,6 @@ raiseOrRun(WindowStat, ProgramPath)
     }
 }
 
-workspace(workspaceID)
-{
-    workspaceID--
-
-    WinActivate, ahk_class Shell_TrayWnd
-
-    Loop, 9
-        Send ^#{Left}
-
-    Loop, %workspaceID%
-        Send ^#{Right}
-}
-
 toggleTreechord()
 {
     if (A_IsSuspended)
@@ -377,22 +364,3 @@ MsNatural4000_ZoomDown:
 MsNatural4000_ZoomUp:
     Send ^{+}
     return
-
-NumpadEnd:: workspace(1)
-NumpadDown:: workspace(2)
-NumpadPgDn:: workspace(3)
-NumpadLeft:: workspace(4)
-NumpadClear:: workspace(5)
-NumpadRight:: workspace(6)
-NumpadHome:: workspace(7)
-NumpadUp:: workspace(8)
-NumpadPgUp:: workspace(9)
-NumpadIns:: workspace(10)
-
-; NumpadDot
-; NumLock
-; NumpadDiv
-; NumpadMult
-NumpadAdd:: Send ^#{Right}
-NumpadSub:: Send ^#{Left}
-; NumpadEnter
