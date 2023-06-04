@@ -18,7 +18,7 @@ By design, Treechord doesn't modify any Windows internals, unlike unsuppored mod
 ## Usage
 To use the keyboard shortcuts, simply press the bound key or key combination. The corresponding program will be launched.
 
-To run Treechord, run `Treechord.ahk`, or the `Treechord.exe` file.
+To run Treechord, run `Treechord.ahk`, or the `Treechord-x64-windows.exe` file.
 
 **Note**: The keyboard shortcuts will only work if the configuration file is properly loaded by Treechord.
 
