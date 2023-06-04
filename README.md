@@ -35,14 +35,14 @@ Here is an example of a valid configuration:
 
 In this example, pressing `"Windows + A"` will launch Telegram, `"Windows + Shift + A"` will launch Discord, and `"Windows + Alt + A"` will launch Spotify.
 
-## Key Bindings
+### Key Bindings
 The keys or key combinations to be bound are specified as strings. Here are some examples of valid key bindings:
 
 `"bindB"`: Binds the `Windows + B` key combination.
 `"bindShiftB"`: Binds the `Windows + Shift + B` key combination.
 `"bindAltB"`: Binds the `Windows + Alt + B` key combination.
 
-## Program Paths
+### Program Paths
 The programs to be launched are specified as file paths. These paths should be absolute and should include the program's executable file.
 
 Here is an example of a valid program path:
