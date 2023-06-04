@@ -15,6 +15,13 @@ By design, Treechord doesn't modify any Windows internals, unlike unsuppored mod
 - Suppored by all keyboards (extended on MS Ergonomic 4000).
 - JSON configurable.
 
+## Usage
+To use the keyboard shortcuts, simply press the bound key or key combination. The corresponding program will be launched.
+
+To run Treechord, run `Treechord.ahk`, or the `Treechord.exe` file.
+
+**Note**: The keyboard shortcuts will only work if the configuration file is properly loaded by Treechord.
+
 ## Configuration
 The configuration file is in JSON format, with each key representing a keyboard shortcut and the corresponding value representing the program to be launched.
 
@@ -43,8 +50,3 @@ Here is an example of a valid program path:
     "C:/Users/weiwuer/AppData/Roaming/Telegram Desktop/Telegram.exe"
 
 **Note**: Use / (forward slashes) instead of \ (backslashes). If you must use backslashes, use \\ for proper Treechord interpretation.
-
-## Usage
-To use the keyboard shortcuts, simply press the bound key or key combination. The corresponding program will be launched.
-
-**Note**: The keyboard shortcuts will only work if the configuration file is properly loaded by Treechord.
