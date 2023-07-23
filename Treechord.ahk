@@ -28,6 +28,7 @@ InitConfiguration(fileName)
 	"bindA": "",
     "bindB": "",
 	"bindC": "",
+	"bindE": [ "CabinetWClass", "C:/Windows/explorer.exe" ],
 	"bindF": "",
 	"bindG": "",
 	"bindH": "",
@@ -188,6 +189,7 @@ for variableName, variableData in JSONData
         case "bindA": bindA := ProcessValue(variableData)
         case "bindB": bindB := ProcessValue(variableData)
         case "bindC": bindC := ProcessValue(variableData)
+        case "bindE": bindE := ProcessValue(variableData)
         case "bindF": bindF := ProcessValue(variableData)
         case "bindG": bindG := ProcessValue(variableData)
         case "bindH": bindH := ProcessValue(variableData)
@@ -284,7 +286,7 @@ for variableName, variableData in JSONData
 #b:: RaiseOrRun(bindB[1], bindB[2])
 #c:: RaiseOrRun(bindC[1], bindC[2])
 ;#d:: RaiseOrRun(bindD[1], bindD[2])
-;#e:: RaiseOrRun(bindE[1], bindE[2])
+#e:: RaiseOrRun(bindE[1], bindE[2])
 #f:: RaiseOrRun(bindF[1], bindF[2])
 #g:: RaiseOrRun(bindG[1], bindG[2])
 #h:: RaiseOrRun(bindH[1], bindH[2])
