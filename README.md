@@ -50,3 +50,6 @@ Here is an example of a valid program path:
     "C:/Users/weiwuer/AppData/Roaming/Telegram Desktop/Telegram.exe"
 
 **Note**: Use / (forward slashes) instead of \ (backslashes). If you must use backslashes, use \\ for proper Treechord interpretation.
+
+## TODO
+- [ ] Make a custom config file layout. Make it have an if statment system when parsing in Treechord.
