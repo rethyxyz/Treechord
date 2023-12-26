@@ -52,4 +52,4 @@ Here is an example of a valid program path:
 **Note**: Use / (forward slashes) instead of \ (backslashes). If you must use backslashes, use \\ for proper Treechord interpretation.
 
 ## TODO
-- [ ] Make a custom config file layout. Make it have an if statment system when parsing in Treechord.
+- [ ] Make a custom config file layout. Make it have an if statement system when parsing in Treechord.
