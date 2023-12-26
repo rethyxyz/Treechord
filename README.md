@@ -12,7 +12,7 @@ By design, Treechord doesn't modify any Windows internals, unlike unsuppored mod
 ## Features
 - Built on top of Windows; doesn't cause instability; doesn't touch registry, or group policies
 - Standalone; no installation.
-- Suppored by all keyboards (extended on MS Ergonomic 4000).
+- Supported by all keyboards (extended on MS Ergonomic 4000).
 - JSON configurable.
 
 ## Usage
