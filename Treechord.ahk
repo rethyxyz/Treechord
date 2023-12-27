@@ -280,6 +280,10 @@ for variableName, variableData in JSONData
 }
 
 /* Windows + ?
+ * 
+ * Commonly used default Windows shortcuts are commented out, such as Windows + d,
+ * Windows + r, and Windows + x.
+ *
  */
 
 #a:: RaiseOrRun(bindA[1], bindA[2])
